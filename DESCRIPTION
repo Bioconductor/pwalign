@@ -1,0 +1,18 @@
+Package: pairwiseAlignment
+Title: Perform pairwise sequence alignments
+Description: Solves (Needleman-Wunsch) global alignment, (Smith-Waterman) local
+	alignment, and (ends-free) overlap alignment problems.
+biocViews: Alignment, SequenceMatching, Sequencing, Genetics
+URL: https://bioconductor.org/packages/pairwiseAlignment
+BugReports: https://github.com/Bioconductor/pairwiseAlignment/issues
+Version: 0.0.0
+License: Artistic-2.0
+Encoding: UTF-8
+Authors@R: c(
+	person("Patrick", "Aboyoun", role="aut"),
+	person("Robert", "Gentleman", role="aut"),
+	person("Hervé", "Pagès", role="cre",
+	       email="hpages.on.github@gmail.com"))
+Depends: methods, BiocGenerics, S4Vectors, IRanges, Biostrings
+Suggests: RUnit, knitr, rmarkdown, BiocStyle
+VignetteBuilder: knitr
