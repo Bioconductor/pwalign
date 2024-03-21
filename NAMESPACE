@@ -1,0 +1,107 @@
+useDynLib(pairwiseAlignment)
+
+import(methods)
+importFrom(utils, data, packageVersion)
+
+import(BiocGenerics)
+import(S4Vectors)
+import(IRanges)
+import(Biostrings)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export S4 classes
+###
+
+exportClasses(
+    InDel,
+    AlignedXStringSet0, AlignedXStringSet, QualityAlignedXStringSet,
+    PairwiseAlignments,
+    PairwiseAlignmentsSingleSubject,
+    PairwiseAlignmentsSingleSubjectSummary
+)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export S4 methods for generics not defined in pairwiseAlignment
+###
+
+exportMethods(
+    ## Methods for generics defined in the base package:
+    length, as.character, as.matrix, toString, nchar, summary,
+
+    ## Methods for generics defined in the methods package:
+    show,
+
+    ## Methods for generics defined in the BiocGenerics package:
+    type, start, end, width, score,
+
+    ## Methods for generics defined in the S4Vectors package:
+    parallel_slot_names, parallelVectorNames,
+
+    ## Methods for generics defined in the IRanges package:
+    Views, subject, coverage,
+
+    ## Methods for generics defined in the Biostrings package:
+    pattern, consensusMatrix,
+    mismatch, nmatch, nmismatch
+)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export non-generic functions
+###
+
+export(
+    ## PairwiseAlignments-io.R:
+    writePairwiseAlignments,
+
+    ## pairwiseAlignment.R:
+    nucleotideSubstitutionMatrix,
+    errorSubstitutionMatrices,
+    qualitySubstitutionMatrices
+)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export S4 generics defined in pairwiseAlignment, and corresponding methods
+###
+
+export(
+    ## InDel-class.R:
+    insertion, deletion,
+
+    ## AlignedXStringSet-class.R:
+    unaligned, aligned, indel, nindel,
+
+    ## PairwiseAlignments-class.R:
+    PairwiseAlignments, alignedPattern, alignedSubject, pid,
+
+    ## PairwiseAlignmentsSingleSubject-class.R:
+    PairwiseAlignmentsSingleSubject,
+
+    ## align-utils.R:
+    nedit,
+    mismatchTable, mismatchSummary,
+    compareStrings,
+
+    ## pairwiseAlignment.R:
+    pairwiseAlignment,
+
+    ## stringDist.R:
+    stringDist
+)
+
+### Same list as above.
+exportMethods(
+    insertion, deletion,
+    unaligned, aligned, indel, nindel,
+    PairwiseAlignments, alignedPattern, alignedSubject, pid,
+    PairwiseAlignmentsSingleSubject,
+    nedit,
+    mismatchTable, mismatchSummary,
+    compareStrings,
+    pairwiseAlignment,
+    stringDist
+)
+
