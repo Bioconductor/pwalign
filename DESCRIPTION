@@ -5,7 +5,7 @@ Description: Solves (Needleman-Wunsch) global alignment, (Smith-Waterman) local
 biocViews: Alignment, SequenceMatching, Sequencing, Genetics
 URL: https://bioconductor.org/packages/pairwiseAlignment
 BugReports: https://github.com/Bioconductor/pairwiseAlignment/issues
-Version: 0.2.0
+Version: 0.3.0
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -17,8 +17,7 @@ Depends: BiocGenerics, S4Vectors, IRanges, Biostrings (>= 2.71.5)
 Imports: methods, utils
 LinkingTo: S4Vectors, IRanges, XVector, Biostrings
 Enhances: Rmpi
-Suggests: RUnit, knitr, rmarkdown, BiocStyle
-VignetteBuilder: knitr
+Suggests: RUnit
 LazyLoad: yes
 Collate: 00datacache.R
 	utils.R
