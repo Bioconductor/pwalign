@@ -368,7 +368,7 @@ mpi.XStringSet.pairwiseAlignment <-
       }
     }
 
-    mpi.remote.exec(library(Biostrings), ret = FALSE)
+    mpi.remote.exec(library(pairwiseAlignment), ret = FALSE)
     mpiOutput <-
       mpi.parLapply(subsets,
           function(x,
@@ -462,7 +462,7 @@ mpi.QualityScaledXStringSet.pairwiseAlignment <-
       }
     }
 
-    mpi.remote.exec(library(Biostrings), ret = FALSE)
+    mpi.remote.exec(library(pairwiseAlignment), ret = FALSE)
     mpiOutput <-
       mpi.parLapply(subsets,
                     function(x,
