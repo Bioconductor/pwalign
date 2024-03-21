@@ -49,7 +49,7 @@
 \section{Introduction}
 
 In this document we illustrate how to perform pairwise sequence
-alignments using the \Rpackage{pwalign} package's main function
+alignments using the \Rpackage{pwalign} package's central function
 \Rfunction{pairwiseAlignment}. This function aligns a set of
 \Rfunarg{pattern} strings to a \Rfunarg{subject} string in a global, local, or
 overlap (ends-free) fashion with or without affine gaps using either a fixed

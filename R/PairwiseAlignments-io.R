@@ -82,7 +82,7 @@
     ii <- IRanges:::unlist_as_integer(postaligned_match_ranges)
     if (!identical(as.character(postaligned_pattern[ii]),
                    as.character(postaligned_subject[ii])))
-        stop("Biostrings internal error: mismatches and/or indels ",
+        stop("pwalign internal error: mismatches and/or indels ",
              "reported in 'pattern(x)' and 'subject(x)' are inconsistent")
     tmp <- rep.int(" ", length(postaligned_pattern))
     tmp[ii] <- "|"
@@ -273,8 +273,8 @@ writePairwiseAlignments <- function(x, file="", Matrix=NA, block.width=50)
     } else if (!is(file, "connection")) {
         stop("'file' must be a single string or a connection object")
     }
-    pkgversion <- as.character(packageVersion("Biostrings"))
-    Program <- paste("Biostrings (version ", pkgversion, "), ",
+    pkgversion <- as.character(packageVersion("pwalign"))
+    Program <- paste("pwalign (version ", pkgversion, "), ",
                      "a Bioconductor package", sep="")
     cat("########################################\n", file=file)
     cat("# Program: ", Program, "\n", sep="", file=file)

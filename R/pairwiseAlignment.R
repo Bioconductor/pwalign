@@ -277,7 +277,9 @@ mpi.XStringSet.pairwiseAlignment <-
   } else {
       useMpi <- FALSE
   }
-  if (useMpi) {
+  ## Use of Rmpi temporarily disabled.
+  #if (useMpi) {
+  if (FALSE) {
     perNode <- n %/% k
     subsets <- vector("list", k)
     for (i in seq_len(k)) {
@@ -293,7 +295,9 @@ mpi.XStringSet.pairwiseAlignment <-
       }
     }
 
-    mpi.remote.exec(library(pwalign), ret = FALSE)
+    ## Commented out for now to quieten BiocCheck. Uncomment when
+    ## re-enabling Rmpi.
+    #mpi.remote.exec(library(pwalign), ret = FALSE)
     mpiOutput <-
       mpi.parLapply(subsets,
           function(x,
@@ -359,7 +363,9 @@ mpi.QualityScaledXStringSet.pairwiseAlignment <-
   } else {
     useMpi <- FALSE
   }
-  if (useMpi) {
+  ## Use of Rmpi temporarily disabled.
+  #if (useMpi) {
+  if (FALSE) {
     perNode <- n %/% k
     subsets <- vector("list", k)
     for (i in seq_len(k)) {
@@ -387,7 +393,9 @@ mpi.QualityScaledXStringSet.pairwiseAlignment <-
       }
     }
 
-    mpi.remote.exec(library(pwalign), ret = FALSE)
+    ## Commented out for now to quieten BiocCheck. Uncomment when
+    ## re-enabling Rmpi.
+    #mpi.remote.exec(library(pwalign), ret = FALSE)
     mpiOutput <-
       mpi.parLapply(subsets,
                     function(x,

@@ -75,7 +75,7 @@ export(
     unaligned, aligned, indel, nindel,
 
     ## PairwiseAlignments-class.R:
-    PairwiseAlignments, alignedPattern, alignedSubject, pid,
+    PairwiseAlignments, alignedPattern, alignedSubject,
 
     ## PairwiseAlignmentsSingleSubject-class.R:
     PairwiseAlignmentsSingleSubject,
@@ -84,6 +84,9 @@ export(
     nedit,
     mismatchTable, mismatchSummary,
     compareStrings,
+
+    ## pid.R:
+    pid,
 
     ## pairwiseAlignment.R:
     pairwiseAlignment,
@@ -96,11 +99,12 @@ export(
 exportMethods(
     insertion, deletion,
     unaligned, aligned, indel, nindel,
-    PairwiseAlignments, alignedPattern, alignedSubject, pid,
+    PairwiseAlignments, alignedPattern, alignedSubject,
     PairwiseAlignmentsSingleSubject,
     nedit,
     mismatchTable, mismatchSummary,
     compareStrings,
+    pid,
     pairwiseAlignment,
     stringDist
 )

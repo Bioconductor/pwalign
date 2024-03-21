@@ -47,7 +47,7 @@ getdata <- function(objname)
 {
     if (!exists(objname, envir=datacache)) {
         if (objname %in% SERIALIZED_OBJNAMES) {
-            data(list=objname, package="Biostrings", envir=datacache)
+            data(list=objname, package="pwalign", envir=datacache)
         } else {
             assign(objname, createObject(objname), envir=datacache)
         }

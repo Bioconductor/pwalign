@@ -45,5 +45,12 @@
   \code{\link{PairwiseAlignments-class}}
 }
 
+\examples{
+pa <- PairwiseAlignments("-PA--W-HEAE", "HEAGAWGHE-E")
+pa_indel <- indel(pa)  # an InDel object
+insertion(pa_indel)
+deletion(pa_indel)
+}
+
 \keyword{methods}
 \keyword{classes}

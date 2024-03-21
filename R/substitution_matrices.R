@@ -24,14 +24,14 @@ function(match = 1, mismatch = 0, baseOnly = FALSE, type = "DNA", symmetric = TR
   splitLetters <- strsplit(letters,split="")
   submat <- matrix(0, nrow = nLetters, ncol = nLetters, dimnames = list(names(letters), names(letters)))
   if (symmetric) {
-    for (i in 1:nLetters) {
+    for (i in seq_len(nLetters)) {
       for (j in i:nLetters) {
         submat[i,j] <- submat[j,i] <- mean(outer(splitLetters[[i]], splitLetters[[j]], "=="))
       }
     }
   }
   else {
-    for (i in 1:nLetters) {
+    for (i in seq_len(nLetters)) {
       for (j in i:nLetters) {
         submat[i,j] <- mean(outer(splitLetters[[i]], splitLetters[[j]], "%in%"))
         submat[j,i] <- mean(outer(splitLetters[[j]], splitLetters[[i]], "%in%"))

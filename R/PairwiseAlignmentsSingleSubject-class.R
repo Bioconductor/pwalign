@@ -111,8 +111,7 @@ setMethod("Views", signature = c(subject = "PairwiseAlignmentsSingleSubject"),
               else
                   end <- as.integer(end) + start(subject(subject))
               tmp <- unaligned(subject(subject))
-              if (length(tmp) != 1L)
-                  stop("internal error: length(tmp) != 1")
+              stopifnot(length(tmp) == 1L)  # sanity check
               ans_subject <- tmp[[1L]]
               Views(ans_subject, start=start, end=end, names=names)
           })

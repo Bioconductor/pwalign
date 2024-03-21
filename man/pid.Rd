@@ -1,6 +1,6 @@
 \name{pid}
-\alias{pid}
 
+\alias{pid}
 \alias{pid,PairwiseAlignments-method}
 
 \title{Percent Sequence Identity}
@@ -49,18 +49,18 @@ identity for protein sequence alignments, BMC Bioinformatics 2006, 7:415.
   \link{match-utils}
 }
 \examples{
-  s1 <- DNAString("AGTATAGATGATAGAT")
-  s2 <- DNAString("AGTAGATAGATGGATGATAGATA")
+s1 <- DNAString("AGTATAGATGATAGAT")
+s2 <- DNAString("AGTAGATAGATGGATGATAGATA")
 
-  palign1 <- pairwiseAlignment(s1, s2)
-  palign1
-  pid(palign1)
+palign1 <- pairwiseAlignment(s1, s2)
+palign1
+pid(palign1)
 
-  palign2 <-
-    pairwiseAlignment(s1, s2,
-      substitutionMatrix =
-      nucleotideSubstitutionMatrix(match = 2, mismatch = 10, baseOnly = TRUE))
-  palign2
-  pid(palign2, type = "PID4")
+palign2 <-
+  pairwiseAlignment(s1, s2,
+    substitutionMatrix =
+    nucleotideSubstitutionMatrix(match = 2, mismatch = 10, baseOnly = TRUE))
+palign2
+pid(palign2, type = "PID4")
 }
 \keyword{methods}

@@ -1,11 +1,14 @@
 Package: pwalign
 Title: Perform pairwise sequence alignments
-Description: Solves (Needleman-Wunsch) global alignment, (Smith-Waterman) local
-	alignment, and (ends-free) overlap alignment problems.
+Description: The two main functions in the package are pairwiseAlignment() and
+	stringDist(). The former solves (Needleman-Wunsch) global alignment,
+	(Smith-Waterman) local alignment, and (ends-free) overlap alignment
+	problems. The latter computes the Levenshtein edit distance or pairwise
+	alignment score matrix for a set of strings.
 biocViews: Alignment, SequenceMatching, Sequencing, Genetics
 URL: https://bioconductor.org/packages/pwalign
 BugReports: https://github.com/Bioconductor/pwalign/issues
-Version: 0.4.0
+Version: 0.99.0
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -27,6 +30,7 @@ Collate: 00datacache.R
 	PairwiseAlignmentsSingleSubject-class.R
 	PairwiseAlignments-io.R
 	align-utils.R
+	pid.R
 	substitution_matrices.R
 	pairwiseAlignment.R
 	stringDist.R

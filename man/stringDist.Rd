@@ -76,17 +76,17 @@ Returns an object of class \code{"dist"}.
   \link{substitution.matrices}
 }
 \examples{
-  stringDist(c("lazy", "HaZy", "crAzY"))
-  stringDist(c("lazy", "HaZy", "crAzY"), ignoreCase = TRUE)
+stringDist(c("lazy", "HaZy", "crAzY"))
+stringDist(c("lazy", "HaZy", "crAzY"), ignoreCase = TRUE)
 
-  data(phiX174Phage)
-  plot(hclust(stringDist(phiX174Phage), method = "single"))
+data(phiX174Phage)
+plot(hclust(stringDist(phiX174Phage), method = "single"))
 
-  data(srPhiX174)
-  stringDist(srPhiX174[1:4])
-  stringDist(srPhiX174[1:4], method = "quality",
-             quality = SolexaQuality(quPhiX174[1:4]),
-             gapOpening = 10, gapExtension = 4)
+data(srPhiX174)
+stringDist(srPhiX174[1:4])
+stringDist(srPhiX174[1:4], method = "quality",
+           quality = SolexaQuality(quPhiX174[1:4]),
+           gapOpening = 10, gapExtension = 4)
 }
 \keyword{character}
 \keyword{multivariate}
