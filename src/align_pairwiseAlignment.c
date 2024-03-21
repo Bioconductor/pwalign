@@ -1,4 +1,4 @@
-#include "pairwiseAlignment.h"
+#include "pwalign.h"
 
 #include "S4Vectors_interface.h"
 #include "IRanges_interface.h"

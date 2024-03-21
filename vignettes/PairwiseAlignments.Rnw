@@ -1,6 +1,6 @@
 %\VignetteIndexEntry{Pairwise Sequence Alignments}
 %\VignetteKeywords{DNA, RNA, Sequence, Biostrings, Sequence alignment} 
-%\VignettePackage{pairwiseAlignment}
+%\VignettePackage{pwalign}
 
 %
 % NOTE -- ONLY EDIT THE .Rnw FILE!!!  The .tex file is
@@ -48,9 +48,9 @@
 
 \section{Introduction}
 
-In this document we illustrate how to perform pairwise sequence alignments
-using the \Rpackage{pairwiseAlignment} package through the use of the
-\Rfunction{pairwiseAlignment} function. This function aligns a set of
+In this document we illustrate how to perform pairwise sequence
+alignments using the \Rpackage{pwalign} package's main function
+\Rfunction{pairwiseAlignment}. This function aligns a set of
 \Rfunarg{pattern} strings to a \Rfunarg{subject} string in a global, local, or
 overlap (ends-free) fashion with or without affine gaps using either a fixed
 or quality-based substitution scoring scheme. This function's computation time
@@ -159,7 +159,7 @@ options(width=72)
 @ 
 
 <<main1>>=
-library(pairwiseAlignment)
+library(pwalign)
 pairwiseAlignment(pattern = c("succeed", "precede"), subject = "supersede")
 @
 
@@ -251,7 +251,7 @@ is set to \Robject{-Inf}?
 \section{Pairwise Sequence Alignment Classes}
 
 Following the design principles of Bioconductor and R, the pairwise sequence
-alignment functionality in the \Rpackage{pairwiseAlignment} package keeps the
+alignment functionality in the \Rpackage{pwalign} package keeps the
 end user close to their data through the use of five specialty classes:
 \Rclass{PairwiseAlignments}, \Rclass{PairwiseAlignmentsSingleSubject},
 \Rclass{PairwiseAlignmentsSingleSubjectSummary}, \Rclass{AlignedXStringSet}, and
@@ -543,7 +543,7 @@ common families evolutionary models of proteins used in pairwise sequence
 alignments are Point Accepted Mutation (PAM) matrices, which are based on
 explicit evolutionary models, and Block Substitution Matrix (BLOSUM) matrices,
 which are based on data-derived evolution models.
-The \Rpackage{pairwiseAlignment} package contains 5 PAM and 5 BLOSUM matrices
+The \Rpackage{pwalign} package contains 5 PAM and 5 BLOSUM matrices
 (\Robject{PAM30} \Robject{PAM40}, \Robject{PAM70}, \Robject{PAM120},
 \Robject{PAM250}, \Robject{BLOSUM45}, \Robject{BLOSUM50}, \Robject{BLOSUM62},
 \Robject{BLOSUM80}, and \Robject{BLOSUM100}) that can be used in the
@@ -783,16 +783,16 @@ For these short reads, the \Rfunction{pairwiseAlignment} function finds that
 the small number of perfect matches is due to two locations on the bacteriophage
 $\phi$X174 genome.
 
-Unlike the \Rfunction{countPDict} function, the \Rfunction{pairwiseAlignment}
-function works off of the original strings, rather than \Rfunction{PDict}
-processed strings, and to be computationally efficient it is recommended that
-the unique sequences are supplied to the \Rfunction{pairwiseAlignment}
-function, and the frequencies of those sequences are supplied to the
-\Rfunarg{weight} argument of functions like \Rfunction{summary},
-\Rfunction{mismatchSummary}, and \Rfunction{coverage}. For the purposes of this
-exercise, a substring of the GenBank bacteriophage $\phi$ X174 genome is
-supplied to the \Rfunarg{subject} argument of the \Rfunction{pairwiseAlignment}
-function to reduce the computation time.
+Unlike the \Rfunction{countPDict} function from the \Rpackage{Biostrings}
+package, the \Rfunction{pairwiseAlignment} function works off of the original
+strings, rather than \Rfunction{PDict} processed strings, and to be
+computationally efficient it is recommended that the unique sequences are
+supplied to the \Rfunction{pairwiseAlignment} function, and the frequencies
+of those sequences are supplied to the \Rfunarg{weight} argument of functions
+like \Rfunction{summary}, \Rfunction{mismatchSummary}, and \Rfunction{coverage}.
+For the purposes of this exercise, a substring of the GenBank bacteriophage
+$\phi$ X174 genome is supplied to the \Rfunarg{subject} argument of the
+\Rfunction{pairwiseAlignment} function to reduce the computation time.
 
 <<genome2>>=
 genBankSubstring <- substring(genBankPhage, 2793-34, 2811+34)

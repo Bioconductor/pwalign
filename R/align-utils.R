@@ -11,7 +11,7 @@ setMethod("nmatch", c(pattern = "PairwiseAlignments", x = "missing"),
     function(pattern, x, fixed)
         .Call2("PairwiseAlignments_nmatch", nchar(pattern), nmismatch(pattern),
               nindel(subject(pattern))[,"WidthSum"], nindel(pattern(pattern))[,"WidthSum"],
-              PACKAGE="pairwiseAlignment")
+              PACKAGE="pwalign")
 )
 
 setMethod("nmatch", c(pattern = "PairwiseAlignmentsSingleSubjectSummary", x = "missing"),
@@ -317,7 +317,7 @@ setMethod("compareStrings",
               if (any(ncharPattern != nchar(subject)))
                   stop("'pattern' and 'subject' must have the same number of characters")
               .Call2("align_compareStrings", pattern, subject, max(ncharPattern), "+", "-", "?",
-                    PACKAGE="pairwiseAlignment")
+                    PACKAGE="pwalign")
           })
 setMethod("compareStrings",
           signature = c(pattern = "XString", subject = "XString"),

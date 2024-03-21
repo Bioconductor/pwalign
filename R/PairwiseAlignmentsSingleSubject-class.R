@@ -201,7 +201,7 @@ setMethod("aligned", "PairwiseAlignmentsSingleSubject",
                       endgapCode <- as.raw(letters2codes[[endgapCode]])
                   }
                   value <-
-                    .Call2("PairwiseAlignmentsSingleSubject_align_aligned", x, gapCode, endgapCode, PACKAGE="pairwiseAlignment")
+                    .Call2("PairwiseAlignmentsSingleSubject_align_aligned", x, gapCode, endgapCode, PACKAGE="pwalign")
               }
               value
           })

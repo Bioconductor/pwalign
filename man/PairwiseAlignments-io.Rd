@@ -36,7 +36,7 @@ writePairwiseAlignments(x, file="", Matrix=NA, block.width=50)
     See the \code{substitutionMatrix} argument of the
     \code{\link{pairwiseAlignment}} function for the details.
     See \code{?\link{substitution.matrices}} for a list of
-    predefined substitution matrices available in the Biostrings package.
+    predefined substitution matrices available in the \pkg{pwalign} package.
   }
   \item{block.width}{
     A single integer specifying the maximum number of sequence

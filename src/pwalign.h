@@ -1,5 +1,5 @@
-#ifndef _PAIRWISEALIGNMENT_H_
-#define _PAIRWISEALIGNMENT_H_
+#ifndef _PWALIGN_H_
+#define _PWALIGN_H_
 
 #include <Rdefines.h>
 
@@ -69,5 +69,5 @@ SEXP XStringSet_align_distance(
 	SEXP fuzzyLookupTable
 );
 
-#endif  /* _PAIRWISEALIGNMENT_H_ */
+#endif  /* _PWALIGN_H_ */
 

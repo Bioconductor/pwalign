@@ -192,7 +192,7 @@ function(pattern,
         fuzzyMatrix,
         dim(fuzzyMatrix),
         fuzzyLookupTable,
-        PACKAGE="pairwiseAlignment")
+        PACKAGE="pwalign")
 }
 
 .normargFuzzyMatrix <- function(fuzzyMatrix, rownames)
@@ -311,7 +311,7 @@ QualityScaledXStringSet.pairwiseAlignment <- function(pattern, subject,
           fuzzyReferenceMatrix,
           dim(fuzzyReferenceMatrix),
           fuzzyLookupTable,
-          PACKAGE="pairwiseAlignment")
+          PACKAGE="pwalign")
 }
 
 mpi.collate.pairwiseAlignment <-
@@ -368,7 +368,7 @@ mpi.XStringSet.pairwiseAlignment <-
       }
     }
 
-    mpi.remote.exec(library(pairwiseAlignment), ret = FALSE)
+    mpi.remote.exec(library(pwalign), ret = FALSE)
     mpiOutput <-
       mpi.parLapply(subsets,
           function(x,
@@ -462,7 +462,7 @@ mpi.QualityScaledXStringSet.pairwiseAlignment <-
       }
     }
 
-    mpi.remote.exec(library(pairwiseAlignment), ret = FALSE)
+    mpi.remote.exec(library(pwalign), ret = FALSE)
     mpiOutput <-
       mpi.parLapply(subsets,
                     function(x,

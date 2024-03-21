@@ -111,7 +111,7 @@ function(x,
                     fuzzyMatrix,
                     dim(fuzzyMatrix),
                     fuzzyLookupTable,
-                    PACKAGE="pairwiseAlignment")
+                    PACKAGE="pwalign")
     if (method %in% c("levenshtein", "substitutionMatrix"))
       answer <- -answer
   }
@@ -212,7 +212,7 @@ function(x,
                   fuzzyReferenceMatrix,
                   dim(fuzzyReferenceMatrix),
                   fuzzyLookupTable,
-                  PACKAGE="pairwiseAlignment")
+                  PACKAGE="pwalign")
   attr(answer, "Size") <- length(x)
   attr(answer, "Labels") <- names(x)
   attr(answer, "Diag") <- diag

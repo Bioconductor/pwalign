@@ -4,8 +4,8 @@
 
 .onUnload <- function(libpath)
 {
-    library.dynam.unload("pairwiseAlignment", libpath)
+    library.dynam.unload("pwalign", libpath)
 }
 
-.test <- function() BiocGenerics:::testPackage("pairwiseAlignment")
+.test <- function() BiocGenerics:::testPackage("pwalign")
 

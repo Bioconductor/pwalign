@@ -1,2 +1,2 @@
-require("pairwiseAlignment") || stop("unable to load pairwiseAlignment package")
-pairwiseAlignment:::.test()
+require("pwalign") || stop("unable to load pwalign package")
+pwalign:::.test()

@@ -113,7 +113,7 @@ setMethod("aligned", "AlignedXStringSet0",
                       gapCode <- as.raw(letters2codes[["-"]])
                   }
                   value <-
-                    .Call2("AlignedXStringSet_align_aligned", x, gapCode, PACKAGE="pairwiseAlignment")
+                    .Call2("AlignedXStringSet_align_aligned", x, gapCode, PACKAGE="pwalign")
               }
               value
           })
@@ -127,7 +127,7 @@ setMethod("indel", "AlignedXStringSet0", function(x) x@indel)
 setGeneric("nindel", function(x) standardGeneric("nindel"))
 setMethod("nindel", "AlignedXStringSet0", function(x) summary(indel(x)))
 setMethod("nchar", "AlignedXStringSet0",
-          function(x, type="chars", allowNA=FALSE) .Call2("AlignedXStringSet_nchar", x, PACKAGE="pairwiseAlignment"))
+          function(x, type="chars", allowNA=FALSE) .Call2("AlignedXStringSet_nchar", x, PACKAGE="pwalign"))
 setMethod("seqtype", "AlignedXStringSet0", function(x) seqtype(unaligned(x)))
 
 setMethod("parallelVectorNames", "AlignedXStringSet0",

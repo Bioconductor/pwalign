@@ -1,4 +1,4 @@
-useDynLib(pairwiseAlignment)
+useDynLib(pwalign)
 
 import(methods)
 importFrom(utils, data, packageVersion)
@@ -23,7 +23,7 @@ exportClasses(
 
 
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-### Export S4 methods for generics not defined in pairwiseAlignment
+### Export S4 methods for generics not defined in pwalign
 ###
 
 exportMethods(
@@ -64,7 +64,7 @@ export(
 
 
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-### Export S4 generics defined in pairwiseAlignment, and corresponding methods
+### Export S4 generics defined in pwalign, and corresponding methods
 ###
 
 export(
