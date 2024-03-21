@@ -52,6 +52,10 @@ writePairwiseAlignments(x, file="", Matrix=NA, block.width=50)
   for a brief (and rather informal) description of this format.
 }
 
+\value{
+  Nothing (invisible \code{NULL}).
+}
+
 \note{
   This brief description of the "pair" format suggests that
   it is best suited for \emph{global} pairwise alignments,

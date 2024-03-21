@@ -27,6 +27,7 @@ Collate: 00datacache.R
 	PairwiseAlignmentsSingleSubject-class.R
 	PairwiseAlignments-io.R
 	align-utils.R
+	substitution_matrices.R
 	pairwiseAlignment.R
 	stringDist.R
 	zzz.R

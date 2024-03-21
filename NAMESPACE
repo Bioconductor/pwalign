@@ -56,7 +56,7 @@ export(
     ## PairwiseAlignments-io.R:
     writePairwiseAlignments,
 
-    ## pairwiseAlignment.R:
+    ## substitution_matrices.R:
     nucleotideSubstitutionMatrix,
     errorSubstitutionMatrices,
     qualitySubstitutionMatrices
