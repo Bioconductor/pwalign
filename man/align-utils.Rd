@@ -58,20 +58,6 @@ compareStrings(pattern, subject)
                 baseOnly=FALSE, gapCode="-", endgapCode="-")
 }
 
-\details{
-  \code{mismatchTable}:  a data.frame containing the positions and substrings
-  of the mismatches for the \code{AlignedXStringSet} or
-  \code{PairwiseAlignments} object.
-
-  \code{mismatchSummary}:  a list of data.frame objects containing counts and
-  frequencies of the mismatches for the \code{AlignedXStringSet} or
-  \code{PairwiseAlignmentsSingleSubject} object.
-
-  \code{compareStrings} combines two equal-length strings that are assumed to be
-  aligned into a single character string containing that replaces mismatches
-  with \code{"?"}, insertions with \code{"+"}, and deletions with \code{"-"}.
-}
-
 \arguments{
   \item{x}{
     A \code{character} vector or matrix, \code{XStringSet}, \code{XStringViews},
@@ -121,6 +107,25 @@ compareStrings(pattern, subject)
   }
 }
 
+\value{
+  \code{nedit()}: An integer vector of the same length as the input
+  \code{PairwiseAlignments} object reporting the number of edits (i.e.
+  nb of mismatches + nb of indels) for each alignment.
+
+  \code{mismatchTable()}: A data.frame containing the positions and
+  substrings of the mismatches for the \code{AlignedXStringSet} or
+  \code{PairwiseAlignments} object.
+
+  \code{mismatchSummary()}: A list of data.frame objects containing counts and
+  frequencies of the mismatches for the \code{AlignedXStringSet} or
+  \code{PairwiseAlignmentsSingleSubject} object.
+
+  \code{compareStrings()}: Combines two equal-length strings that are assumed
+  to be aligned into a single character string containing that replaces
+  mismatches with \code{"?"}, insertions with \code{"+"}, and deletions with
+  \code{"-"}.
+}
+
 \seealso{
   \code{\link{pairwiseAlignment}},
   \code{\link{consensusMatrix}},
@@ -130,23 +135,24 @@ compareStrings(pattern, subject)
 }
 
 \examples{
-  ## Compare two globally aligned strings
-  string1 <- "ACTTCACCAGCTCCCTGGCGGTAAGTTGATC---AAAGG---AAACGCAAAGTTTTCAAG"
-  string2 <- "GTTTCACTACTTCCTTTCGGGTAAGTAAATATATAAATATATAAAAATATAATTTTCATC"
-  compareStrings(string1, string2)
+## Compare two globally aligned strings
+string1 <- "ACTTCACCAGCTCCCTGGCGGTAAGTTGATC---AAAGG---AAACGCAAAGTTTTCAAG"
+string2 <- "GTTTCACTACTTCCTTTCGGGTAAGTAAATATATAAATATATAAAAATATAATTTTCATC"
+compareStrings(string1, string2)
 
-  ## Create a consensus matrix
-  nw1 <-
-    pairwiseAlignment(AAStringSet(c("HLDNLKGTF", "HVDDMPNAL")), AAString("SMDDTEKMSMKL"),
-      substitutionMatrix = "BLOSUM50", gapOpening = 3, gapExtension = 1)
-  consensusMatrix(nw1)
+## Create a consensus matrix
+nw1 <- pairwiseAlignment(
+         AAStringSet(c("HLDNLKGTF", "HVDDMPNAL")), AAString("SMDDTEKMSMKL"),
+         substitutionMatrix = "BLOSUM50", gapOpening = 3, gapExtension = 1)
 
-  ## Examine the consensus between the bacteriophage phi X174 genomes
-  data(phiX174Phage)
-  phageConsmat <- consensusMatrix(phiX174Phage, baseOnly = TRUE)
-  phageDiffs <- which(apply(phageConsmat, 2, max) < length(phiX174Phage))
-  phageDiffs
-  phageConsmat[,phageDiffs]
+consensusMatrix(nw1)
+
+## Examine the consensus between the bacteriophage phi X174 genomes
+data(phiX174Phage)
+phageConsmat <- consensusMatrix(phiX174Phage, baseOnly = TRUE)
+phageDiffs <- which(apply(phageConsmat, 2, max) < length(phiX174Phage))
+phageDiffs
+phageConsmat[,phageDiffs]
 }
 
 \keyword{methods}

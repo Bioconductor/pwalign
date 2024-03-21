@@ -201,7 +201,8 @@ setMethod("mismatchSummary", "QualityAlignedXStringSet",
                                                    end = end(x)[nonEmptyAlignment])
                                             )[, qualityValues + 1, drop=FALSE])
         }
-        names(qualityAll) <- sapply(as.raw(qualityValues), rawToChar)
+        names(qualityAll) <- vapply(as.raw(qualityValues),
+                                    rawToChar, character(1))
         qualityAll <- qualityAll[qualityAll > 0]
         if (length(weight) == 1)
             qualityTable <- weight * table(.mismatchTable[["Quality"]])
