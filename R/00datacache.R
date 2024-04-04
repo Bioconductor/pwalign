@@ -1,11 +1,4 @@
 ### =========================================================================
-### Environment for storing run-time objects
-###
-
-RTobjs <- new.env(hash=TRUE, parent=emptyenv())
-
-
-### =========================================================================
 ### Serialized objects
 ###
 
@@ -26,11 +19,11 @@ SERIALIZED_OBJNAMES <- c(
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ### Objects created "on-the-fly" (not serialized)
 ###
-### WARNING: Improper calls to 'getdata' by the 'createObject' function can
-### lead to infinite recursive loops!
+### WARNING: Improper calls to getdata() by .createObject() can lead to
+### infinite recursion!
 ###
 
-createObject <- function(objname)
+.createObject <- function(objname)
 {
     # add more here...
     stop("don't know how to create object '", objname, "'")
@@ -41,17 +34,17 @@ createObject <- function(objname)
 ### The "getdata" function (NOT exported)
 ###
 
-datacache <- new.env(hash=TRUE, parent=emptyenv())
+.datacache <- new.env(hash=TRUE, parent=emptyenv())
 
 getdata <- function(objname)
 {
-    if (!exists(objname, envir=datacache)) {
+    if (!exists(objname, envir=.datacache)) {
         if (objname %in% SERIALIZED_OBJNAMES) {
-            data(list=objname, package="pwalign", envir=datacache)
+            data(list=objname, package="pwalign", envir=.datacache)
         } else {
-            assign(objname, createObject(objname), envir=datacache)
+            assign(objname, .createObject(objname), envir=.datacache)
         }
     }
-    get(objname, envir=datacache)
+    get(objname, envir=.datacache)
 }
 

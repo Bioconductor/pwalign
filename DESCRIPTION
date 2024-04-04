@@ -8,7 +8,7 @@ Description: The two main functions in the package are pairwiseAlignment() and
 biocViews: Alignment, SequenceMatching, Sequencing, Genetics
 URL: https://bioconductor.org/packages/pwalign
 BugReports: https://github.com/Bioconductor/pwalign/issues
-Version: 0.99.0
+Version: 0.99.1
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -21,7 +21,6 @@ Imports: methods, utils
 LinkingTo: S4Vectors, IRanges, XVector, Biostrings
 Enhances: Rmpi
 Suggests: RUnit
-LazyLoad: yes
 Collate: 00datacache.R
 	utils.R
 	InDel-class.R

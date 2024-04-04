@@ -306,39 +306,42 @@ setMethod("coverage", "PairwiseAlignmentsSingleSubjectSummary",
 ### Compare strings
 ###
 
-setGeneric("compareStrings", signature = c("pattern", "subject"),
-           function(pattern, subject)  standardGeneric("compareStrings"))
-setMethod("compareStrings",
-          signature = c(pattern = "character", subject = "character"),
-          function(pattern, subject) {
-              if (length(pattern) != length(subject))
-                  stop("'pattern' and 'subject' must have the same length")
-              ncharPattern <- nchar(pattern)
-              if (any(ncharPattern != nchar(subject)))
-                  stop("'pattern' and 'subject' must have the same number of characters")
-              .Call2("align_compareStrings", pattern, subject, max(ncharPattern), "+", "-", "?",
-                    PACKAGE="pwalign")
-          })
-setMethod("compareStrings",
-          signature = c(pattern = "XString", subject = "XString"),
-          function(pattern, subject) {
-              compareStrings(as.character(pattern), as.character(subject))
-          })
-setMethod("compareStrings",
-          signature = c(pattern = "XStringSet", subject = "XStringSet"),
-          function(pattern, subject) {
-              compareStrings(as.character(pattern), as.character(subject))
-          })
-setMethod("compareStrings",
-          signature = c(pattern = "AlignedXStringSet0", subject = "AlignedXStringSet0"),
-          function(pattern, subject) {
-              compareStrings(as.character(pattern), as.character(subject))
-          })
-setMethod("compareStrings",
-          signature = c(pattern = "PairwiseAlignments", subject = "missing"),
-          function(pattern, subject) {
-              compareStrings(pattern@pattern, pattern@subject)
-          })
+### This is a symmetric operation but the names of the arguments suggest
+### otherwise which is unfortunate. Would have been better to call
+### them 'x' and 'y'.
+setGeneric("compareStrings", signature=c("pattern", "subject"),
+    function(pattern, subject) standardGeneric("compareStrings")
+)
+
+.compareStrings <- function(pattern, subject)
+{
+    if (!is.character(pattern))
+        pattern <- as.character(pattern)
+    if (!is.character(subject))
+        subject <- as.character(subject)
+    if (length(pattern) != length(subject))
+        stop(wmsg("'pattern' and 'subject' must have the same length"))
+    ncharPattern <- nchar(pattern)
+    if (any(ncharPattern != nchar(subject)))
+        stop(wmsg("the strings in 'pattern' and 'subject' must have ",
+                  "the same number of characters"))
+    .Call2("align_compareStrings", pattern, subject,
+                                   max(ncharPattern), "+", "-", "?",
+                                   PACKAGE="pwalign")
+}
+
+setMethod("compareStrings", c("character", "character"), .compareStrings)
+
+setMethod("compareStrings", c("XString", "XString"), .compareStrings)
+
+setMethod("compareStrings", c("XStringSet", "XStringSet"), .compareStrings)
+
+setMethod("compareStrings", c("AlignedXStringSet0", "AlignedXStringSet0"),
+                            .compareStrings)
+
+setMethod("compareStrings", c("PairwiseAlignments", "missing"),
+    function(pattern, subject) .compareStrings(pattern@pattern, pattern@subject)
+)
 
 
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -346,13 +349,15 @@ setMethod("compareStrings",
 ###
 
 setMethod("consensusMatrix", "PairwiseAlignmentsSingleSubject",
-          function(x, as.prob=FALSE, shift=0L, width=NULL,
-                   baseOnly=FALSE, gapCode="-", endgapCode="-")
-          {
-              if (!identical(shift, 0L) || !identical(width, NULL))
-                  stop("\"consensusMatrix\" method for PairwiseAlignmentsSingleSubject objects ",
-                       "doesn't support the 'shift' and 'width' arguments")
-              consensusMatrix(aligned(x, gapCode=gapCode, endgapCode=endgapCode),
-                              as.prob=as.prob, baseOnly=baseOnly)
-          })
+    function(x, as.prob=FALSE, shift=0L, width=NULL,
+                baseOnly=FALSE, gapCode="-", endgapCode="-")
+    {
+        if (!identical(shift, 0L) || !identical(width, NULL))
+            stop(wmsg("\"consensusMatrix\" method for ",
+                      "PairwiseAlignmentsSingleSubject objects ",
+                      "doesn't support the 'shift' and 'width' arguments"))
+        consensusMatrix(aligned(x, gapCode=gapCode, endgapCode=endgapCode),
+                        as.prob=as.prob, baseOnly=baseOnly)
+    }
+)
 

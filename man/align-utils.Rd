@@ -126,6 +126,8 @@ compareStrings(pattern, subject)
   \code{"-"}.
 }
 
+\author{P. Aboyoun}
+
 \seealso{
   \code{\link{pairwiseAlignment}},
   \code{\link{consensusMatrix}},
