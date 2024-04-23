@@ -226,7 +226,8 @@ function(x,
 setGeneric("stringDist", signature = "x",
            function(x, method = "levenshtein", ignoreCase = FALSE, diag = FALSE,
                     upper = FALSE, ...)
-           standardGeneric("stringDist"))
+           standardGeneric("stringDist"),
+           where=asNamespace("pwalign"))
 
 setMethod("stringDist",
           signature(x = "character"),

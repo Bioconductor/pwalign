@@ -73,7 +73,7 @@ Returns an object of class \code{"dist"}.
   \link[stats]{dist},
   \link[base]{agrep},
   \link{pairwiseAlignment},
-  \link{substitution.matrices}
+  \link{substitution_matrices}
 }
 \examples{
 stringDist(c("lazy", "HaZy", "crAzY"))

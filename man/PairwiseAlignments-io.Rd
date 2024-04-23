@@ -35,7 +35,7 @@ writePairwiseAlignments(x, file="", Matrix=NA, block.width=50)
     (e.g. \code{"BLOSUM50"}) used for the alignment.
     See the \code{substitutionMatrix} argument of the
     \code{\link{pairwiseAlignment}} function for the details.
-    See \code{?\link{substitution.matrices}} for a list of
+    See \code{?\link{substitution_matrices}} for a list of
     predefined substitution matrices available in the \pkg{pwalign} package.
   }
   \item{block.width}{
@@ -106,7 +106,7 @@ writePairwiseAlignments(x, file="", Matrix=NA, block.width=50)
   \itemize{
     \item \code{\link{pairwiseAlignment}}
     \item \link{PairwiseAlignments-class}
-    \item \link{substitution.matrices}
+    \item \link{substitution_matrices}
   }
 }
 

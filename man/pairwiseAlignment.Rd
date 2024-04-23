@@ -136,7 +136,7 @@ against a reference sequence.
   \code{\link{stringDist}},
   \link{PairwiseAlignments-class},
   \link{XStringQuality-class},
-  \link{substitution.matrices},
+  \link{substitution_matrices},
   \code{\link{matchPattern}}
 }
 \examples{
