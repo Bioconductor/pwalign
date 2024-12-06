@@ -320,7 +320,9 @@ get_aligned_pattern <- function(x_pattern, x_subject,
 ### Accessor methods.
 ###
 
+setGeneric("pattern", function(x) standardGeneric("pattern"))
 setMethod("pattern", "PairwiseAlignments", function(x) x@pattern)
+
 setMethod("subject", "PairwiseAlignments", function(x) x@subject)
 
 setMethod("type", "PairwiseAlignments", function(x) x@type)

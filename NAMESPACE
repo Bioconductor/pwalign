@@ -43,7 +43,7 @@ exportMethods(
     Views, subject, coverage,
 
     ## Methods for generics defined in the Biostrings package:
-    pattern, consensusMatrix,
+    consensusMatrix,
     mismatch, nmatch, nmismatch
 )
 
@@ -75,7 +75,7 @@ export(
     unaligned, aligned, indel, nindel,
 
     ## PairwiseAlignments-class.R:
-    PairwiseAlignments, alignedPattern, alignedSubject,
+    PairwiseAlignments, pattern, alignedPattern, alignedSubject,
 
     ## PairwiseAlignmentsSingleSubject-class.R:
     PairwiseAlignmentsSingleSubject,
@@ -99,7 +99,7 @@ export(
 exportMethods(
     insertion, deletion,
     unaligned, aligned, indel, nindel,
-    PairwiseAlignments, alignedPattern, alignedSubject,
+    PairwiseAlignments, pattern, alignedPattern, alignedSubject,
     PairwiseAlignmentsSingleSubject,
     nedit,
     mismatchTable, mismatchSummary,

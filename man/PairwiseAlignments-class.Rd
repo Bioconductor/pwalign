@@ -25,6 +25,7 @@
 \alias{PairwiseAlignmentsSingleSubject,character,character-method}
 
 % Accessor methods:
+\alias{pattern}
 \alias{pattern,PairwiseAlignments-method}
 \alias{subject,PairwiseAlignments-method}
 \alias{type}
