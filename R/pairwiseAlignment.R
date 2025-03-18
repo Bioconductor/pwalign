@@ -89,7 +89,7 @@ function(pattern,
            ncol = length(availableLetters),
            dimnames = list(availableLetters, availableLetters))
   substitutionArray <-
-    array(unlist(substitutionMatrix, substitutionMatrix), dim = c(dim(substitutionMatrix), 2),
+    array(c(substitutionMatrix, substitutionMatrix), dim = c(dim(substitutionMatrix), 2),
           dimnames = list(availableLetters, availableLetters, c("0", "1")))
   substitutionLookupTable <-
     buildLookupTable(alphabetToCodes[availableLetters],
