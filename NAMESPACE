@@ -1,7 +1,7 @@
 useDynLib(pwalign)
 
 import(methods)
-importFrom(utils, data, packageVersion)
+importFrom(utils, packageVersion)
 
 import(BiocGenerics)
 import(S4Vectors)
